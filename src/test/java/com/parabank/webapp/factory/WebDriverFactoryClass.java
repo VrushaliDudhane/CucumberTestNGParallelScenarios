@@ -22,7 +22,9 @@ public class WebDriverFactoryClass {
 
 		else if (browser.equalsIgnoreCase("edge")) {
 			WebDriverManager.edgedriver().setup();
-			threadPool.set(new EdgeDriver());
+			EdgeOptions opt=new EdgeOptions();
+			opt.addArguments("--remote-allow-origins=*");
+			threadPool.set(new EdgeDriver(opt));
 		}
 		
 		else if (browser.equalsIgnoreCase("firefox")) {
